@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProducts } from '../redux/actions/productActions';
 import Product from './Product';
+import { Grid, Button } from '@mui/material';
 
 const ProductList = () => {
     const dispatch = useDispatch();
@@ -29,17 +30,27 @@ const ProductList = () => {
     };
 
     return (
-        <div className="container">
-            <h2>Products</h2>
-            <div className="sort-button">
-                <button onClick={sortProducts}>Sort by Price</button>
-                {sortActive && <button className="clear-sort" onClick={clearSort}>Clear Sort</button>}
+        <div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '20px 0' }}>
+                <h2>Products</h2>
+                <div>
+                    <Button onClick={sortProducts} variant="outlined" color="primary" style={{ marginRight: '10px' }}>
+                        Sort by Price
+                    </Button>
+                    {sortActive && (
+                        <Button onClick={clearSort} variant="outlined" color="secondary">
+                            Clear Sort
+                        </Button>
+                    )}
+                </div>
             </div>
-            <div className="product-list">
+            <Grid container spacing={3}>
                 {sortedProducts.map((product) => (
-                    <Product key={product.id} product={product} />
+                    <Grid item key={product.id} xs={12} sm={6} md={4}>
+                        <Product product={product} />
+                    </Grid>
                 ))}
-            </div>
+            </Grid>
         </div>
     );
 };

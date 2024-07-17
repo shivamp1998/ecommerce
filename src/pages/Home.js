@@ -1,12 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Button, Typography, Box } from '@mui/material';
 
 const Home = () => {
     return (
-        <div className="container">
-            <h1>Welcome to the Ecommerce Store</h1>
-            <Link to="/products" className="btn btn-primary">Go to Products</Link>
-        </div>
+        <Box display="flex" flexDirection="column" alignItems="center" justifyContent="center" height="100vh">
+            <Typography variant="h2" component="h1" gutterBottom>
+                Welcome to the Ecommerce Store
+            </Typography>
+            <Button component={Link} to="/products" variant="contained" color="primary" size="large">
+                Go to Products
+            </Button>
+        </Box>
     );
 };
 

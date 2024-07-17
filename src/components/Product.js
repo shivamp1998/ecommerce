@@ -2,9 +2,16 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { editProduct, deleteProduct } from '../redux/actions/productActions';
 import { addToCart } from '../redux/actions/cartActions';
+import { Card, CardContent, CardActions, Button, Typography, TextField, CardMedia } from '@mui/material';
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import { useSnackbar } from 'notistack';
+import { Link } from 'react-router-dom';
 
 const Product = ({ product }) => {
     const dispatch = useDispatch();
+    const { enqueueSnackbar } = useSnackbar();
     const [isEditing, setIsEditing] = useState(false);
     const [editedProduct, setEditedProduct] = useState(product);
 
@@ -15,12 +22,12 @@ const Product = ({ product }) => {
     const handleSave = () => {
         dispatch(editProduct(editedProduct));
         setIsEditing(false);
-        showAlert('success', 'Product updated successfully!');
+        enqueueSnackbar('Product updated successfully!', { variant: 'success' });
     };
 
     const handleDelete = () => {
         dispatch(deleteProduct(product.id));
-        showAlert('success', 'Product deleted successfully!');
+        enqueueSnackbar('Product deleted successfully!', { variant: 'success' });
     };
 
     const handleChange = (e) => {
@@ -30,69 +37,93 @@ const Product = ({ product }) => {
         });
     };
 
-    const showAlert = (type, message) => {
-        const alert = document.createElement('div');
-        alert.className = `alert ${type}`;
-        alert.textContent = message;
-        document.body.appendChild(alert);
-        alert.style.display = 'block';
-        setTimeout(() => {
-            alert.style.display = 'none';
-            document.body.removeChild(alert);
-        }, 3000);
-    };
-
     return (
-        <div className="product">
-            {isEditing ? (
-                <div>
-                    <input
-                        type="text"
-                        name="name"
-                        value={editedProduct.name}
-                        onChange={handleChange}
-                        className="form-control"
-                    />
-                    <input
-                        type="text"
-                        name="description"
-                        value={editedProduct.description}
-                        onChange={handleChange}
-                        className="form-control"
-                    />
-                    <input
-                        type="number"
-                        name="price"
-                        value={editedProduct.price}
-                        onChange={handleChange}
-                        className="form-control"
-                    />
-                    <input
-                        type="number"
-                        name="rating"
-                        value={editedProduct.rating}
-                        onChange={handleChange}
-                        className="form-control"
-                    />
-                    <div className="edit-buttons">
-                        <button onClick={handleSave}>Save</button>
-                        <button onClick={() => setIsEditing(false)}>Cancel</button>
+        <Card sx={{ maxWidth: 345, margin: 2 }}>
+            <CardMedia
+                component="img"
+                height="140"
+                image={product.image}
+                alt={product.name}
+            />
+            <CardContent>
+                {isEditing ? (
+                    <div>
+                        <TextField
+                            label="Name"
+                            name="name"
+                            value={editedProduct.name}
+                            onChange={handleChange}
+                            fullWidth
+                            margin="normal"
+                        />
+                        <TextField
+                            label="Description"
+                            name="description"
+                            value={editedProduct.description}
+                            onChange={handleChange}
+                            fullWidth
+                            margin="normal"
+                        />
+                        <TextField
+                            label="Price"
+                            name="price"
+                            value={editedProduct.price}
+                            onChange={handleChange}
+                            fullWidth
+                            margin="normal"
+                            type="number"
+                        />
+                        <TextField
+                            label="Rating"
+                            name="rating"
+                            value={editedProduct.rating}
+                            onChange={handleChange}
+                            fullWidth
+                            margin="normal"
+                            type="number"
+                        />
+                        <TextField
+                            label="Image URL"
+                            name="image"
+                            value={editedProduct.image}
+                            onChange={handleChange}
+                            fullWidth
+                            margin="normal"
+                        />
+                        <Button onClick={handleSave} color="primary" variant="contained">
+                            Save
+                        </Button>
+                        <Button onClick={() => setIsEditing(false)} color="secondary" variant="contained" sx={{ ml: 2 }}>
+                            Cancel
+                        </Button>
                     </div>
-                </div>
-            ) : (
-                <div>
-                    <h3>{product.name}</h3>
-                    <p>{product.description}</p>
-                    <p>Price: ${product.price}</p>
-                    <p>Rating: {product.rating}</p>
-                    <div className="edit-buttons">
-                        <button onClick={handleEdit}><i className="fas fa-pencil-alt"></i></button>
-                        <button onClick={handleDelete}><i className="fas fa-trash-alt"></i></button>
+                ) : (
+                    <div>
+                        <Link to={`/product/${product.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                            <Typography variant="h5" component="div">
+                                {product.name}
+                            </Typography>
+                            <Typography variant="body2" color="text.secondary">
+                                {product.description}
+                            </Typography>
+                            <Typography variant="body2" color="text.secondary">
+                                Price: ${product.price}
+                            </Typography>
+                            <Typography variant="body2" color="text.secondary">
+                                Rating: {product.rating}
+                            </Typography>
+                        </Link>
                     </div>
-                </div>
-            )}
-            <button onClick={() => dispatch(addToCart(product))}>Add to Cart</button>
-        </div>
+                )}
+            </CardContent>
+            <CardActions>
+                <Button onClick={handleEdit} startIcon={<EditIcon />} size="small">Edit</Button>
+                <Button onClick={handleDelete} startIcon={<DeleteIcon />} size="small">Delete</Button>
+                <Button onClick={() => dispatch(addToCart(product))} startIcon={<AddShoppingCartIcon />} size="small">
+                    Add to Cart
+                </Button>
+            </CardActions>
+        </Card>
     );
 };
 

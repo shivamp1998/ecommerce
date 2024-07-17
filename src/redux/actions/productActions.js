@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+const API_URL = 'https://my-json-server.typicode.com/shivamp1998/ecommerce/products';
+
 export const setProducts = (products) => {
     return {
         type: 'SET_PRODUCTS',
@@ -10,7 +12,7 @@ export const setProducts = (products) => {
 export const fetchProducts = () => {
     return (dispatch) => {
         axios
-            .get('https://my-json-server.typicode.com/shivamp1998/ecommerce')
+            .get(API_URL)
             .then((response) => {
                 dispatch(setProducts(response.data));
             })
