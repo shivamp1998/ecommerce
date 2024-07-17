@@ -10,7 +10,7 @@ export const setProducts = (products) => {
 export const fetchProducts = () => {
     return (dispatch) => {
         axios
-            .get('https://my-json-server.typicode.com/your-username/your-db/products')
+            .get('https://my-json-server.typicode.com/shivamp1998/ecommerce')
             .then((response) => {
                 dispatch(setProducts(response.data));
             })
