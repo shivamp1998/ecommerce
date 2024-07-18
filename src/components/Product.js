@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { editProduct, deleteProduct } from '../redux/actions/productActions';
 import { addToCart } from '../redux/actions/cartActions';
-import { Card, CardContent, CardActions, Button, Typography, TextField, CardMedia } from '@mui/material';
+import { Card, CardContent, CardActions, Button, Typography, TextField, CardMedia, Box } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
@@ -38,14 +38,14 @@ const Product = ({ product }) => {
     };
 
     return (
-        <Card sx={{ maxWidth: 345, margin: 2 }}>
+        <Card sx={{ width: '100%', maxWidth: 345, margin: 2 }}>
             <CardMedia
                 component="img"
-                height="140"
+                height="200"
                 image={product.image}
                 alt={product.name}
             />
-            <CardContent>
+            <CardContent sx={{ minHeight: 150 }}>
                 {isEditing ? (
                     <div>
                         <TextField

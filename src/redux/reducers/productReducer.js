@@ -9,6 +9,11 @@ const productReducer = (state = initialState, action) => {
                 ...state,
                 products: action.payload,
             };
+        case 'ADD_PRODUCT':
+            return {
+                ...state,
+                products: [...state.products, action.payload],
+            };
         case 'EDIT_PRODUCT':
             return {
                 ...state,
@@ -22,11 +27,6 @@ const productReducer = (state = initialState, action) => {
                 products: state.products.filter(
                     (product) => product.id !== action.payload
                 ),
-            };
-        case 'ADD_PRODUCT':
-            return {
-                ...state,
-                products: [...state.products, action.payload],
             };
         default:
             return state;

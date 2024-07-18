@@ -6,7 +6,7 @@
       "description": "Experience the comfort and style of the Nike Air Max 270. These sneakers feature a large air unit for cushioning and a sleek design.",
       "price": 150,
       "rating": 4.5,
-      "image": "https://images.unsplash.com/photo-1612277807864-7f18e6ed62b7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwyMDg1NzR8MHwxfGFsbHwxfHx8fHx8fHwxNjE2Njg4OTY5&ixlib=rb-1.2.1&q=80&w=400"
+      "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/s6dp2gck3oukxj9csz5y/air-max-270-shoes-2V5C4p.png"
     },
     {
       "id": 2,
@@ -22,7 +22,7 @@
       "description": "Meet the Samsung Galaxy S21. The smartphone that sets the new standard with its groundbreaking camera and cutting-edge performance.",
       "price": 799,
       "rating": 4.6,
-      "image": "https://images.unsplash.com/photo-1612277803758-e080c5b09ef2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwyMDg1NzR8MHwxfGFsbHwzfHx8fHx8fHwxNjE2Njg4OTY5&ixlib=rb-1.2.1&q=80&w=400"
+      "image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.reliancedigital.in%2Fgopro-hero9-action-camera-with-20mp-video-streaming-dual-display-waterproof-upto-33ft-%2Fp%2F491903420&psig=AOvVaw3xcWWL2YruLEi3Lg-I1Bam&ust=1721371996662000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCPDhvsSAsIcDFQAAAAAdAAAAABAE"
     },
     {
       "id": 4,
@@ -30,7 +30,7 @@
       "description": "The Sony WH-1000XM4 headphones offer industry-leading noise cancellation, exceptional sound quality, and a comfortable design.",
       "price": 349,
       "rating": 4.7,
-      "image": "https://images.unsplash.com/photo-1580894894518-d2150d39d217?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwyMDg1NzR8MHwxfGFsbHw0fHx8fHx8fHwxNjE2Njg4OTY5&ixlib=rb-1.2.1&q=80&w=400"
+      "image": "https://www.sony.co.in/image/5d02da5df552836db894cead8a68f5f3?fmt=pjpeg&wid=330&bgcolor=FFFFFF&bgc=FFFFFF"
     },
     {
       "id": 5,
@@ -38,7 +38,7 @@
       "description": "Capture stunning 5K video and 20MP photos with the GoPro HERO9 Black. Features a front display, powerful battery, and advanced video stabilization.",
       "price": 399,
       "rating": 4.4,
-      "image": "https://images.unsplash.com/photo-1581291519195-ef11498d1cf9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwyMDg1NzR8MHwxfGFsbHw1fHx8fHx8fHwxNjE2Njg4OTY5&ixlib=rb-1.2.1&q=80&w=400"
+      "image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.reliancedigital.in%2Fgopro-hero9-action-camera-with-20mp-video-streaming-dual-display-waterproof-upto-33ft-%2Fp%2F491903420&psig=AOvVaw3xcWWL2YruLEi3Lg-I1Bam&ust=1721371996662000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCPDhvsSAsIcDFQAAAAAdAAAAABAE"
     }
   ]
 }

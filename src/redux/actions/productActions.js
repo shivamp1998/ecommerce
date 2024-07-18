@@ -22,23 +22,50 @@ export const fetchProducts = () => {
     };
 };
 
+export const addProduct = (product) => {
+    return (dispatch) => {
+        axios
+            .post(API_URL, product)
+            .then((response) => {
+                dispatch({
+                    type: 'ADD_PRODUCT',
+                    payload: response.data,
+                });
+            })
+            .catch((error) => {
+                console.error('Error adding product:', error);
+            });
+    };
+};
+
 export const editProduct = (product) => {
-    return {
-        type: 'EDIT_PRODUCT',
-        payload: product,
+    return (dispatch) => {
+        axios
+            .patch(`${API_URL}/${product.id}`, product)
+            .then((response) => {
+                dispatch({
+                    type: 'EDIT_PRODUCT',
+                    payload: response.data,
+                });
+            })
+            .catch((error) => {
+                console.error('Error editing product:', error);
+            });
     };
 };
 
 export const deleteProduct = (id) => {
-    return {
-        type: 'DELETE_PRODUCT',
-        payload: id,
-    };
-};
-
-export const addProduct = (product) => {
-    return {
-        type: 'ADD_PRODUCT',
-        payload: product,
+    return (dispatch) => {
+        axios
+            .delete(`${API_URL}/${id}`)
+            .then(() => {
+                dispatch({
+                    type: 'DELETE_PRODUCT',
+                    payload: id,
+                });
+            })
+            .catch((error) => {
+                console.error('Error deleting product:', error);
+            });
     };
 };
