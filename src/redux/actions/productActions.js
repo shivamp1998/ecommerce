@@ -41,7 +41,7 @@ export const addProduct = (product) => {
 export const editProduct = (product) => {
     return (dispatch) => {
         axios
-            .patch(`${API_URL}/${product.id}`, product)
+            .put(`${API_URL}/${product.id}`, product)
             .then((response) => {
                 dispatch({
                     type: 'EDIT_PRODUCT',

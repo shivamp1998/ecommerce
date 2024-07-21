@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchProducts } from '../redux/actions/productActions';
+import { fetchProducts, setProducts } from '../redux/actions/productActions';
 import Product from './Product';
 import { Grid, Button, Box } from '@mui/material';
 
@@ -47,7 +47,7 @@ const ProductList = () => {
             <Grid container spacing={2}>
                 {sortedProducts.map((product) => (
                     <Grid item key={product.id} xs={12} sm={6} md={4}>
-                        <Product product={product} />
+                        <Product product={product} sortedProducts={setProducts} />
                     </Grid>
                 ))}
             </Grid>

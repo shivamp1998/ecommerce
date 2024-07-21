@@ -9,7 +9,7 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import { useSnackbar } from 'notistack';
 import { Link } from 'react-router-dom';
 
-const Product = ({ product }) => {
+const Product = ({ product, setProducts }) => {
     const dispatch = useDispatch();
     const { enqueueSnackbar } = useSnackbar();
     const [isEditing, setIsEditing] = useState(false);
